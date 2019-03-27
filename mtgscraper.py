@@ -35,6 +35,7 @@ results = ''
 
 # download web content from each url and store prices to results string
 with open(filepath + 'urls.txt') as urls:
+    results = []
     for url in urls:
         curlist = [] # regex list to find price/name at the current url
 
@@ -57,14 +58,15 @@ with open(filepath + 'urls.txt') as urls:
         # append current card name/price to results string
         currentPrice = name + ': ' + price
         print(currentPrice)
-        results = results + currentPrice + '\n'
+        results.append(currentPrice)
 
 # store current date/time
-cur_date = datetime.datetime.now().strftime('%m/%d/%Y %H:%M:%S')
+cur_date = datetime.datetime.now().strftime('%m_%d_%Y_%H:%M:%S')
 
 # write results to text file
 with open(filepath + 'prices_' + cur_date + '.txt', 'w') as prices:
-    prices.write(results)
+    prices.write("\n".join(results))
+
 
 # send the results to email
 from_email = 'username@example.com'
