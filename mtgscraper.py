@@ -55,9 +55,7 @@ with open(filepath + 'urls.txt') as urls:
         name = name[0].split(cur_list[3])[0]
 
         # append current card name/price to results string
-        currentPrice = name + ': ' + price
-        print(currentPrice)
-        results = results + currentPrice + '\n'
+        results = results + name + ': ' + price + '\n'
 
 # store current date/time
 cur_date = datetime.datetime.now().strftime('%m/%d/%Y %H:%M:%S')
