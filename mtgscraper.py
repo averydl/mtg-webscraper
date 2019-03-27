@@ -70,7 +70,7 @@ message = EmailMessage()
 message['Subject'] = subject
 message['From'] = from_email
 message['To'] = to_email
-message.set_content(output)
+message.set_content(results)
 
 server = smtplib.SMTP('smtp.example.com')
 server.connect('smtp.example.com')
