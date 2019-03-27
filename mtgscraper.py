@@ -66,7 +66,7 @@ with open(filepath + 'urls.txt') as urls:
         results.append(currentPrice)
 
 # store current date/time
-cur_date = datetime.datetime.now().strftime('%m_%d_%Y_%H:%M:%S')
+cur_date = datetime.datetime.now().strftime('%m-%d-%Y_%I%p')
 
 # write results to text file
 with open(filepath + 'prices_' + cur_date + '.txt', 'w') as prices:
