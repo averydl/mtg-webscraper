@@ -46,8 +46,7 @@ with open(filepath + 'urls.txt') as urls:
 
         # download the target webpage
         req = urllib.request.Request(url, None, headers)
-        scontext = ssl.SSLContext() # bypass SSL certificate verification
-        webpage = urllib.request.urlopen(req, context=scontext).read()
+        webpage = urllib.request.urlopen(req).read()
 
         # find target name/price using regexes and split tokens
         price = re.findall(cur_list[0], str(webpage))
