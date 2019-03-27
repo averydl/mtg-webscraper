@@ -58,10 +58,10 @@ with open(filepath + 'urls.txt') as urls:
         results = results + name + ': ' + price + '\n'
 
 # store current date/time
-cur_date = datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+cur_date = datetime.datetime.now().strftime('%m/%d/%Y %H:%M:%S')
 
 # write results to text file
-with open(filepath + 'prices_' + cur_date, 'w') as prices:
+with open(filepath + 'prices_' + cur_date + '.txt', 'w') as prices:
     prices.write(results)
 
 # send the results to email
