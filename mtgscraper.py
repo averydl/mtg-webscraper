@@ -1,3 +1,4 @@
+import configparser
 import urllib.request
 import re
 import ssl
@@ -6,8 +7,12 @@ import datetime
 import regexes
 from email.message import EmailMessage
 
+#read from config file
+config = configparser.ConfigParser()
+config.read('settings.cnf')
+
 # path to url.txt file and output file(s)
-filepath = 'ADD_FULL_FILE_PATH_HERE'
+filepath = config['DEFAULT']['home_dir']
 
 # prevent connections from being refused due to user agent
 user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
@@ -69,21 +74,21 @@ with open(filepath + 'prices_' + cur_date + '.txt', 'w') as prices:
 
 
 # send the results to email
-from_email = 'username@example.com'
-to_email = 'username@example.com'
+from_email = config['DEFAULT']['from_email']
+to_email = config['DEFAULT']['to_email']
 subject = 'MTG Prices: ' + cur_date
 
 message = EmailMessage()
 message['Subject'] = subject
 message['From'] = from_email
 message['To'] = to_email
-message.set_content(results)
+message.set_content("\n".join(results))
 
-server = smtplib.SMTP('smtp.example.com')
-server.connect('smtp.example.com')
+server = smtplib.SMTP(config['DEFAULT']['from_email_domain'])
+server.connect(config['DEFAULT']['from_email_domain'])
 server.ehlo()
 server.starttls()
 server.ehlo()
-server.login(from_email, input("Enter Password: "))
+server.login(from_email, config['DEFAULT']['from_email_password'])
 server.send_message(message)
 server.quit()

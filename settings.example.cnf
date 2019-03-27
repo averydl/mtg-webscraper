@@ -1,0 +1,7 @@
+[DEFAULT]
+home_dir = /users/name/example/mtg/
+to_email = username@example.com
+to_email_domain = smtp.example.com
+from_email = username@example.com
+from_email_domain = smtp.example.com
+from_email_password = password
