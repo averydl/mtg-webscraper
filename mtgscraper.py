@@ -57,14 +57,17 @@ with open(filepath + 'urls.txt') as urls:
         # append current card name/price to results string
         results = results + name + ': ' + price + '\n'
 
+# store current date/time
+cur_date = datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+
 # write results to text file
-with open(filepath + 'prices.txt', 'w') as prices:
+with open(filepath + 'prices_' + cur_date, 'w') as prices:
     prices.write(results)
 
 # send the results to email
 from_email = 'username@example.com'
 to_email = 'username@example.com'
-subject = 'MTG Prices: ' + datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+subject = 'MTG Prices: ' + cur_date
 
 message = EmailMessage()
 message['Subject'] = subject
