@@ -1,5 +1,6 @@
 [DEFAULT]
 home_dir = /users/name/example/mtg/
+output_dir = /users/name/example/mtg/output/
 to_email = username@example.com
 to_email_domain = smtp.example.com
 from_email = username@example.com

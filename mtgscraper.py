@@ -11,8 +11,9 @@ from email.message import EmailMessage
 config = configparser.ConfigParser()
 config.read('settings.cnf')
 
-# path to url.txt file and output file(s)
+# path to highest level script directory
 filepath = config['DEFAULT']['home_dir']
+outputpath = config['DEFAULT']['output_dir']
 
 # prevent connections from being refused due to user agent
 user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7'
