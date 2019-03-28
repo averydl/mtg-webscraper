@@ -70,7 +70,7 @@ with open(filepath + 'urls.txt') as urls:
 cur_date = datetime.datetime.now().strftime('%m-%d-%Y_%I%p')
 
 # write results to text file
-with open(filepath + 'prices_' + cur_date + '.txt', 'w') as prices:
+with open(outputpath + 'prices_' + cur_date + '.txt', 'w') as prices:
     prices.write("\n".join(results))
 
 
